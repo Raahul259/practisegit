@@ -1,0 +1,52 @@
+<!doctype html>
+<html data-ng-app="myapp">
+    <head>
+        <title>AngularJS app</title>
+        <link rel="sytesheet" href="bootstrap-3.3.5-dist/css/bootstrap.css"/>
+        <script type="text/javascript" src="jquery-1.11.3.js"></script>
+        <script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+        
+        <style>
+         .done-true{
+          text-decoration: line-through;
+          color: red;
+         }
+        </style>
+        
+    </head>
+    <body>
+        Name: {{name}}<br/>
+        <input type="text" ng-model="nameText"/>
+        
+        <div class="container" data-ng-init ="names=['hello', 'world', 'how', 'are', 'you']">
+        <h3> Looping with AngularJS</h3>
+            <ul>
+              <li data-ng-repeat="name in names | filter:nameText ">
+              {{name | uppercase}}
+                  
+                </li>
+            </ul>
+        </div>
+        
+        <div data-ng-controller = "TodolistController as todoController" class="container">
+            <h1>{{todoController.text}}</h1>
+            <span>{{todoController.remaining()}}</span> of <span>{{todoController.todos.length}}</span> Remaining..
+                                  
+            <ul class="unstyled">
+                <li ng-repeat="dataitem in  todoController.todos">
+                <input type="checkbox" ng-model = 'dataitem.done' name="todo"  checked="dataitem.done"/>
+                <span class="done-{{dataitem.done}}">{{dataitem.text}}</span>  
+                </li>
+            </ul>
+            <div data-ng-controller = "firstChildController as fcc">
+                <input type="text" ng-model="todoController.newTask"/>
+                <button ng-click="add()">Add Me</button> 
+            </div>
+
+        </div>
+        
+        <script type="text/javascript" src="angular-1.4.6/angular.js"></script>
+        <script type="text/javascript" src="ui-bootstrap-tpls-1.0.3.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>

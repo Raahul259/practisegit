@@ -1,13 +1,15 @@
-var app = angular.module('myapp',[]);
+var app = angular.module('firstApp',['libModule',function(){
+    alert("First App Initialized");
+}]);
 
-app.controller("TodolistController", function($scope){
+var TodoListController = app.controller("TodolistController", function($scope){
  var todoList = this;
  todoList.text = "Todo App";
 todoList.todos = [
     {
 
      text: "Learn Angular",
-        done: true
+     done: true
 
     },{
         text: "Learn CSS",
@@ -37,6 +39,9 @@ todoList.todos = [
 });
 
 
+console.log(TodoListController);
+
+
 app.controller('firstChildController', function($scope){
     var parent = $scope.$parent;
     var scope = $scope;
@@ -47,3 +52,8 @@ app.controller('firstChildController', function($scope){
     }
 
 });
+
+
+var second = angular.module("secondApp",[function(){
+    alert("second app intialized");
+}]);

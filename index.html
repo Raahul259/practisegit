@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app="myapp">
+<html>
     <head>
         <title>AngularJS app</title>
         
@@ -16,6 +16,9 @@
         
     </head>
     <body>
+        <!-- ----------------------FIRST APP------------------->
+      <div id="firstApp">
+            <h1>==================First App===================</h1>
         Name: {{name}}<br/>
         <input type="text" ng-model="nameText"/>
         
@@ -46,15 +49,63 @@
                   <input type="text" ng-class="error"/>
                 </form>
             </div>
+            
 
         </div>
+        
+        -------------------------------
+        <div baap-directive first-directive></div>
+        <baap-directive>
+        
+        <first-directive fname="first">
+           <!-- <first-directive fname="first first child"></first-directive>-->
+          <a>Hello</a>
+        </first-directive>
+        
+         </baap-directive>
+        ===============================
         
         <hr/>
          <ng-view></ng-view>
         <hr/>
+        </div>
+        
+        
+        
+        
+         <!-- ----------------------Second APP------------------->
+        <div id='secondApp' class="container well">
+            <h1>-------------------Second App ------------------</h1>
+            <div ng-controller="secondAppController">
+                
+                        <span>{{hello}}</span>
+                        <div baap-directive>Baap Directive on Second App</div>
+                        
+            
+            </div>
+            
+            <div baap-sonDirective style="color:{{col}}">
+               <input type="text" ng-model="col"/>
+            </div>
+
+        </div>
         
         <script type="text/javascript" src="angular-1.4.6/angular.js"></script>
         <script type="text/javascript" src="ui-bootstrap-tpls-1.0.3.js"></script>
+        <script type="text/javascript" src="ui-bootstrap-tpls-1.1.0.js"></script>
         <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="lib/lib.js"></script>
+        <script type="text/javascript" src="./directives.js"></script>
+        <script>
+           
+            debugger;
+            angular.bootstrap(document.getElementById('firstApp'),['firstApp']);
+           
+            angular.bootstrap(document.getElementById('secondApp'), ['secondApp']); 
+                
+        
+
+       
+        </script>
     </body>
 </html>

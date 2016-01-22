@@ -1,0 +1,6 @@
+AngularJs First Time Understandings
+------------
+1.for multiple apps in same page manual bootstrapping using angular.bootstrap(appDomElemReference,['ModuleNameToHandleDom'])
+2.Multiple directives you can define with same name, they all will be executed based on their priority but only one should
+have implicit controller, otherwise conflict error
+3. Directives are split with each camel uppercase
